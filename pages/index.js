@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Home() {
+export default function Home() {
   return (
     <div>
       <h3>Home de teste</h3>
