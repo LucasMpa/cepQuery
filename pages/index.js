@@ -1,34 +1,15 @@
 import { useState } from "react";
+import OriginalCount from "../src/components/CountOriginal";
+import CopyCount from "../src/components/copyCount";
 
-function Home() {
+import CountProvider from "../src/context/Count";
+
+export default function Home() {
   return (
-    <div>
-      <h3>Home</h3>
-      <Contador />
-    </div>
+    <CountProvider>
+      <OriginalCount />
+      <hr />
+      <CopyCount />
+    </CountProvider>
   );
 }
-
-function Contador() {
-  const [count, setCount] = useState(1);
-
-  function AdicionarContador() {
-    setCount(count + 1);
-  }
-  function ReduzirContador() {
-    if (count === 0) {
-      alert("Não é possível reduzir para menos que 0");
-    } else 
-    setCount(count - 1);
-  }
-  return (
-    <div>
-      <h3>{count}</h3>
-      <br />
-      <button onClick={AdicionarContador}>Adicionar</button>
-      <button onClick={ReduzirContador}>Reduzir</button>
-    </div>
-  );
-}
-
-export default Home;
